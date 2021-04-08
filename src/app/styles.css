@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Literata:400,600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #565656;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #000000;
+}
+
+a:link, a:visited {
+    color: #286FA9;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+a:hover {
+    opacity: 1.0;
+}
+
+.MuiButton-root {
+    border-radius: 20px;
+}
+
+/* -Global Snackbars */
+
+.successSnackbar {
+    position: fixed;
+    left: 0;
+} 
+
+.successSnackbar .MuiSnackbarContent-root {
+  background-color: #02BEB2;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  right: auto;
+  top: 40px;
+  width: 100vw;
+  box-shadow: none;
+}
+
+.MuiSnackbarContent-message{
+  padding: 8px;
+}

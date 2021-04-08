@@ -1,0 +1,88 @@
+.card {
+  width: 90%;
+  margin: 18px auto;
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  overflow: visible;
+}
+
+
+
+@media only screen and (min-width : 960px) {
+  .card {
+    margin: 18px auto 18px 0;
+  }
+}
+
+.card::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom: -10px;
+  border-bottom: 1px dashed rgba(0,0,0,.15);
+}
+
+.cardMedia, 
+.cardContent {
+  display: inline-flex;
+  justify-content: center;
+}
+
+.cardMedia {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardContent {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardMedia img {
+  width: 120px;
+}
+
+@supports (-webkit-line-clamp: 3) {
+ 
+}
+
+
+@supports (-webkit-line-clamp: 3) {
+  .line-clamp {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;  
+      max-height:3.6em; /* I needed this to get it to work */
+      height: auto;
+  }
+  .line-clamp:after {
+      display: none;
+  }
+}
+
+
+/*--- Desktop ---*/
+
+@media only screen and (min-width : 960px) {
+
+  .card::after {
+    display: none;
+  }
+
+  .cardContent h6{
+    font-size: 16px;
+  }
+
+  .cardContent p{
+    font-size: 14px;
+  }
+
+}

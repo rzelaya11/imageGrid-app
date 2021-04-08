@@ -1,0 +1,71 @@
+.container-cover-desktop {
+    display: inline-block;
+    border: 1px solid;
+    text-align: center;
+    position: relative;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+  
+.container-cover-desktop img {
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+  
+.expand-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 28px;
+    height: 17px;
+    background: #e7e7e9;
+    padding: 10px;
+}
+
+.modalOverlay {
+    text-align: center !important;
+    background-color: rgba(0, 0, 0, 0.6901960784313725);
+
+}
+
+.modalOverlay > div:focus {
+    outline: none !important;
+}
+
+.modalOverlay .modalEnlargeImage {
+    margin-top: 6vh;
+    max-width: 50%;
+}
+
+.CoverModalClose {
+    position: absolute;
+    top: auto;
+    bottom: 9px;
+    right: 8px;
+    width: 27px;
+    height: 25px;
+    background: #e7e7e9;
+    z-index: 3;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width : 960px) {
+    .CoverModalClose {
+        position: absolute;
+        top: 13px !important;
+        bottom: auto !important;
+        right: 20px;
+        width: 27px;
+        height: 25px;
+        background: #e7e7e9;
+        z-index: 3;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+}

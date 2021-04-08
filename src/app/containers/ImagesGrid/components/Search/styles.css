@@ -1,0 +1,158 @@
+
+.ResultsContainer {
+  flex-grow: 1;
+}
+
+.tabs {
+  position: static;
+}
+
+.ResultsCouter {
+  clear: both;
+  width: 98%;
+  text-align: left;
+  margin: 22px 0 0 4%;
+ 
+}
+
+@media only screen and (min-width : 960px) {
+  .ResultsCouter {
+  margin: 22px 0 0;
+  width: 100%;
+  }
+}
+
+.ResultsCouter .TypeSearchTerm {
+  display: none;
+
+}
+
+@media only screen and (min-width : 960px) {
+  .ResultsCouter .TypeSearchTerm {
+    display: inline-block;
+  }
+}
+
+.ResultsCouter .TypeSearchTerm strong {
+  color: #286FA9;
+  padding: 0 4px;
+}
+
+.MuiTabs-root {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 60px;
+  z-index: 1;
+  background: white;
+  border-color: transparent;
+}
+
+.ContResultsCounterBottom {
+  clear: both;
+  width: 100%;
+  text-align: center;
+  margin: 22px 0 0 0;
+}
+
+.ContLoadMore {
+  clear: both;
+  width: 100%;
+  text-align: center;
+  margin: 22px 0 60px 0;
+}
+
+.ContLoadMore .BtnLoadMore {
+  margin: auto;
+  color: #fff;
+  padding: 0 50px;
+  width: 70%;
+  max-width: 380px;
+}
+
+
+/* No result */
+
+.SearchNoResult {
+  padding: 20px;
+  margin: 4vh auto 60px auto;
+  text-align: center;
+  
+  @media only screen and (min-width : 960px) {
+    text-align: left;
+  }
+}
+
+
+.SearchNoResult .illustration {
+  width: 84%;
+  max-width: 190px;
+  margin: auto;
+  display: block;
+}
+
+@media only screen and (min-width : 960px) {
+  .SearchNoResult .illustration {
+    max-width: 320px;
+  }
+
+}
+
+.SearchNoResult strong{
+  color: #286FA9;
+}
+
+.SearchNoResult ul  {
+  margin-left: 0;
+  padding-left: 0;
+  max-width: 340px;
+  margin: auto;
+  margin-top: 18px;
+  text-align: left;
+  max-width: 340px;
+  margin: auto;
+}
+
+
+@media only screen and (min-width : 960px) {
+  .SearchNoResult h4, .SearchNoResult p  {
+  text-align: left;
+  }
+}
+
+.SearchNoResult ul li {
+  color: #666;
+  display: block;
+  list-style: none; 
+  margin: 0 0 6px 1.1225em;
+  padding: 0;
+  position: relative;
+  display: block;
+}
+
+.SearchNoResult ul li::before {
+  color: #286FA9;  
+  content: "\2022"; 
+  display: inline-block;
+  font-size: 1em;  
+  left: -1.1225em; 
+  position: absolute;
+  top: 0em; 
+}
+
+
+/*--- Desktop ---*/
+
+@media only screen and (min-width : 960px) {
+
+  .MuiContainer-root.MuiContainer-maxWidthLg {
+    padding: 0 1vw;
+  }
+
+  .MuiTabs-root {
+    top: 65px;
+  }
+
+  .searchTabs .MuiTabs-flexContainer {
+    height: 60px;
+  }
+}

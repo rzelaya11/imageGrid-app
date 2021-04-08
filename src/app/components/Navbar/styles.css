@@ -1,0 +1,273 @@
+.ContainerNavbar {
+  flex-grow: 1;
+  font: bold;   
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 2;
+  background: white;
+  height: 60px;
+}
+
+.MuiPaper-elevation4 {
+  box-shadow: none;
+}
+
+.MuiGrid-container {
+  align-items: center;
+  width: 100%;
+}
+
+.logoImage{
+  content: url(../../../assets/images/logo-ico-fullcolor.svg);
+}
+
+.logoHomepage{
+  content: url(../../../assets/images/logo-fullcolor.svg);
+}
+
+.logoHomepage, .logoImage {
+  display: inline-block;
+  width: auto;
+  height: 24px
+}
+
+.logoImage:hover {
+  cursor: pointer;
+}
+
+@media only screen and (min-width : 768px) {
+  .logoImage{
+    content: url(../../../assets/images/logo-fullcolor.svg);
+    display: inline-block;
+    width: auto;
+    height: 24px
+  }
+}
+
+.menu-icon {
+  margin-right: 8;
+}
+
+.Navbar {
+  top: 0;
+  z-index: 2;
+  background-color: white;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.progressBar {
+  top: 52px;
+  z-index: 3;
+}
+
+.MuiContainer-root {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters {
+  padding: 0;
+}
+
+.MuiGrid-root.MuiGrid-container.MuiGrid-item.MuiGrid-justify-xs-center.MuiGrid-grid-xs-10 {
+  max-width: 77%;
+  margin-left: 3%;
+}
+
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+  border: 0;
+}
+
+button.MuiButtonBase-root.MuiIconButton-root {
+  position: relative;
+  left: 18%;
+  margin-right: 0;
+}
+
+button.MuiButtonBase-root.MuiIconButton-root {
+  padding: 6px;
+}
+
+.MuiGrid-root.MuiGrid-container.MuiGrid-item.MuiGrid-justify-xs-flex-end.MuiGrid-grid-xs-2 {
+  margin-left: -1em;
+}
+
+button.MuiButtonBase-root.MuiIconButton-root {
+  position: relative;
+  left: 0.2em;
+}
+
+.MuiInputBase-root input#search-input {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: -3px;
+  height: 32px;
+  line-height: 1.5em;
+}
+
+#search-input-desktop {
+  padding: 2px;
+}
+
+
+/* safari fix */
+@media not all and (min-resolution:.001dpcm) 
+{ @supports (-webkit-appearance:none) {
+
+  #search-input-desktop {
+    height: 22px;
+  }
+}}
+
+
+button.MuiButtonBase-root.MuiIconButton-root.BtnSearchGo {
+  margin-right: 6px; 
+}
+
+.mainNavigation {
+  max-width: 380px;
+  margin-left: 3%;
+}
+
+.mainNavigation .MuiTab-root {
+  min-width: 120px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.buttonLogin {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+button.buttonLogin:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: #F96565;
+}
+
+/*--- Desktop Styles ---*/
+
+@media only screen and (min-width : 768px) {
+
+  .MuiGrid-root.root.MuiGrid-container {
+    border-radius: 10px;
+    margin: auto;
+  }
+
+  .MuiGrid-root.MuiGrid-container.MuiGrid-item.MuiGrid-justify-xs-flex-end.MuiGrid-grid-xs-1 {
+    max-width: 40px;
+    margin-left: 3.5%;
+    padding: 0;
+    text-align: center;
+    max-width: 24px;
+  }
+
+  .MuiGrid-root.MuiGrid-container.MuiGrid-item.MuiGrid-justify-xs-center.MuiGrid-grid-xs-10 {
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .MuiGrid-root.expanded.root.MuiGrid-container {
+    max-width: 980px;
+    margin: auto;
+  }
+
+  .ContainerNavbar .progressBar {
+    top: 60px;
+  }
+}
+
+
+.btn-search-cont {
+  display: none !important;
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  height: 50px;
+  width: 70%;
+  border-right: solid 1px #e6e6e6;
+  margin-right: 25px;
+}
+
+.btn-search-cont .search-closed {
+  position: absolute !important;
+  right: 15px;
+  left: auto !important;
+  top: 8px;
+}
+
+.search-open {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  z-index: 3;
+  height: 56px;
+  max-width: 380px;
+  right: 0;
+}
+
+.search-open .SearchField {
+  margin: 6px 2px;
+  border: 1px solid #DADADA;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 8px 50px 8px 11px;
+  height: 40px;
+  width: 82%;
+  float: right;
+  position: relative;
+  right: 43px;
+  max-width: 282px;
+}
+
+button.BtnSearchGo {
+  position: absolute !important;
+  right: 4px;
+  left: auto !important;
+  top: 8px;
+}
+
+.btn-closesearch {
+  position: absolute;
+    right: 51px;
+    top: 7px;
+}
+
+.label-closedsearch {
+  position: absolute;
+  right: 34px;
+  top: 9px;
+  text-transform: uppercase;
+  color: #868686;
+  font-weight: 600;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.label-closedsearch:hover {
+  color: #666;
+}
+
+
+@media only screen and (min-width : 768px) {
+  .btn-search-cont {
+    display: flex !important;
+  }
+}
+
+
+.btn-admin {
+  border: 1px solid #286FA9;
+  border-radius: 21px;
+  color: #286FA9;
+  min-height: 42px;
+  height: 42px;
+  width: 120px;
+  top: 2px;
+  margin-left: 10px;
+}

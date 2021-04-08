@@ -1,0 +1,44 @@
+.SearchField_Grid {
+  flex-grow: 1;
+  font:bold;   
+}
+
+.SearchField {
+  width: 96%;
+
+}
+
+.SearchField_Grid input::-ms-clear {
+  display: none;
+}
+
+.MuiInput-underline::before, .MuiInput-underline::after {
+  border-bottom-width: 0;
+  border-bottom-color: transparent;
+}
+
+button.MuiButtonBase-root.MuiIconButton-root.BtnSearchGo {
+  position: relative;
+  left: 0;
+}
+
+.BtnSearchCont {
+  position: absolute;
+  right: 3%;
+  top: 11%;
+}
+
+.BtnCloseCont {
+  position: absolute;
+  right: 12%;
+}
+
+@media only screen and (min-width : 960px) {
+  .BtnSearchCont {
+    right: 15%;
+  }
+
+  .BtnCloseCont {
+    right: 19%;
+  }
+}
