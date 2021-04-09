@@ -19,7 +19,7 @@ module.exports = (req, res) => {
     };
     const response = {
         totalItems: 20,
-        items: [image, image, image, image, image, image, image, image, image, image, image, image]
+        items: [image, image, image]
     };
     res.status(200).send(response)
 }
