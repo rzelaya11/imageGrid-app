@@ -73,6 +73,7 @@
     "@types/react-router-dom": "^5.1.0",
     "auth0-js": "^9.8.2",
     "connected-react-router": "^4.5.0",
+    "cors": "^2.8.5",
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
     "html-react-parser": "^0.9.1",
