@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { RootState } from './state';
 import { routerReducer, RouterState } from 'react-router-redux';
-import { booksReducer } from 'app/containers/ImagesGrid/reducer/images';
+import { imagesReducer } from 'app/containers/ImagesGrid/reducer/images';
 
 export { RootState, RouterState };
 
@@ -9,5 +9,5 @@ export { RootState, RouterState };
 // doesn't go well with redux@4
 export const rootReducer = combineReducers<RootState>({
   router: routerReducer as any,
-  images: booksReducer as any,
+  images: imagesReducer as any,
 });

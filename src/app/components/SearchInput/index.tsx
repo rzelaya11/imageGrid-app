@@ -46,6 +46,11 @@ export class SearchInput extends React.Component<SearchInput.Props, SearchInput.
     }
   }
 
+  click: any = () => {
+    console.log('testt');
+    this.props.search();
+  }
+
   getClearButton = (): any => {
     return this.state.text.length > 0 ?
       (
@@ -76,7 +81,7 @@ export class SearchInput extends React.Component<SearchInput.Props, SearchInput.
         {this.getClearButton()}
 
         <Grid item xs={1} container justify="flex-end" className="BtnSearchCont">
-          <IconButton onClick={this.props.search}
+          <IconButton onClick={this.click}
             disabled={this.state.text === ''}
             className="BtnSearchGo"
           >

@@ -1,56 +1,53 @@
 import { createAction } from "redux-actions";
 import { Dispatch } from "redux";
-import { BooksService } from "../services";
+import { ImagesService } from "../services";
 import { SearchRequest, SearchResponse, } from "../models";
 
 export namespace ImageActions {
   export enum Type {
     RESET_SEARCH = 'RESET_SEARCH',
-    SEARCH_BOOKS_FAILED = 'SEARCH_BOOKS_FAILED',
-    SEARCH_BOOKS_REQUEST = 'SEARCH_BOOKS_REQUEST',
-    SEARCH_BOOKS_SUCCESS = 'SEARCH_BOOKS_SUCCESS',
+    SEARCH_IMAGES_FAILED = 'SEARCH_IMAGES_FAILED',
+    SEARCH_IMAGES_REQUEST = 'SEARCH_IMAGES_REQUEST',
+    SEARCH_IMAGES_SUCCESS = 'SEARCH_IMAGES_SUCCESS',
     SET_SEARCH_TEXT = 'SET_SEARCH_TEXT',
     SET_SHOW_SEARCH_INPUT_TEXT = 'SET_SHOW_SEARCH_INPUT_TEXT',
     SET_SCROLL_POSITION = 'SET_SCROLL_POSITION',
-    SET_BOOK_DETAIL_SOURCE = 'SET_BOOK_DETAIL_SOURCE',
+    SET_IMAGE_DETAIL_SOURCE = 'SET_IMAGE_DETAIL_SOURCE',
     SET_BACK_TEXT = 'SET_BACK_TEXT',
 
-
-    SELECT_FROM_BOOK_LIST = 'SELECT_FROM_BOOK_LIST',
-    RESET_BOOKS_STATE = 'RESET_BOOKS_STATE'
+    RESET_IMAGES_STATE = 'RESET_IMAGES_STATE'
   }
 
   export const resetSearch = createAction(
     Type.RESET_SEARCH,
   );
 
-  export const selectFromBookList = createAction<String>(Type.SELECT_FROM_BOOK_LIST);
   export const setShowSearchInput = createAction<boolean>(Type.SET_SHOW_SEARCH_INPUT_TEXT);
   export const setSearchText = createAction<string>(Type.SET_SEARCH_TEXT);
   export const setScrollPosition = createAction<number>(Type.SET_SCROLL_POSITION);
-  export const setImageDetailSource = createAction<string>(Type.SET_BOOK_DETAIL_SOURCE);
+  export const setImageDetailSource = createAction<string>(Type.SET_IMAGE_DETAIL_SOURCE);
   export const setBackText = createAction<string>(Type.SET_BACK_TEXT);
 
-  export const searchBooksRequest = createAction<SearchRequest>(Type.SEARCH_BOOKS_REQUEST);
-  export const searchBooksFailed = createAction(Type.SEARCH_BOOKS_FAILED);
-  export const searchBooksSuccess = createAction<SearchResponse>(Type.SEARCH_BOOKS_SUCCESS);
+  export const searchImagesRequest = createAction<SearchRequest>(Type.SEARCH_IMAGES_REQUEST);
+  export const searchImagesFailed = createAction(Type.SEARCH_IMAGES_FAILED);
+  export const searchImagesSuccess = createAction<SearchResponse>(Type.SEARCH_IMAGES_SUCCESS);
 
 
 
   export const searchImages = (request: SearchRequest) => {
     return async (dispatch: Dispatch) => {
-      dispatch(searchBooksRequest(request));
+      dispatch(searchImagesRequest(request));
       try {
-        const booksService = new BooksService();
+        const imagesService = new ImagesService();
 
         const { keywords, page, pageSize } = request;
 
-        const response = await booksService.searchBooks(keywords.trim(), page, pageSize);
-        dispatch(searchBooksSuccess(response));
+        const response = await imagesService.searchImages(keywords.trim(), page, pageSize);
+        dispatch(searchImagesSuccess(response));
       }
       catch (error) {
         console.log(error);
-        dispatch(searchBooksFailed());
+        dispatch(searchImagesFailed());
       }
     };
   }

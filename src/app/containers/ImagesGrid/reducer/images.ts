@@ -26,7 +26,7 @@ export const productInitialState: ImageState = {
   backText: '',
 };
 
-export const booksReducer = handleActions<ImageState, any>(
+export const imagesReducer = handleActions<ImageState, any>(
   {
 
     [ImageActions.Type.RESET_SEARCH]: state => {
@@ -36,14 +36,14 @@ export const booksReducer = handleActions<ImageState, any>(
         searchText: state.searchText,
       };
     },
-    [ImageActions.Type.SEARCH_BOOKS_FAILED]: state => {
+    [ImageActions.Type.SEARCH_IMAGES_FAILED]: state => {
       return {
         ...state,
         isLoading: false,
         generalStatus: 'failed',
       };
     },
-    [ImageActions.Type.SEARCH_BOOKS_REQUEST]: (state, action) => {
+    [ImageActions.Type.SEARCH_IMAGES_REQUEST]: (state, action) => {
       return {
         ...state,
         isLoading: true,
@@ -52,7 +52,7 @@ export const booksReducer = handleActions<ImageState, any>(
         generalStatus: 'requested-search',
       };
     },
-    [ImageActions.Type.SEARCH_BOOKS_SUCCESS]: (state, action) => {
+    [ImageActions.Type.SEARCH_IMAGES_SUCCESS]: (state, action) => {
       //const results: action.payload.items;
       return {
         ...state,
@@ -70,10 +70,10 @@ export const booksReducer = handleActions<ImageState, any>(
         searchText: action.payload,
       };
     },
-    [ImageActions.Type.SET_BOOK_DETAIL_SOURCE]: (state, action) => {
+    [ImageActions.Type.SET_IMAGE_DETAIL_SOURCE]: (state, action) => {
       return {
         ...state,
-        bookDetailSource: action.payload,
+        imageDetailSource: action.payload,
       };
     },
     [ImageActions.Type.SET_BACK_TEXT]: (state, action) => {
@@ -95,7 +95,7 @@ export const booksReducer = handleActions<ImageState, any>(
       };
     },
 
-    [ImageActions.Type.RESET_BOOKS_STATE]: (state) => {
+    [ImageActions.Type.RESET_IMAGES_STATE]: (state) => {
       return {
         ...productInitialState
       };

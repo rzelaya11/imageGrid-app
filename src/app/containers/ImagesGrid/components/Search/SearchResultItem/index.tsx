@@ -40,7 +40,7 @@ export class SearchResultItem extends React.Component<SearchResultItem.Props, Se
             <img src={this.getImage(image)}></img>
           </CardMedia>
           <CardContent className={"cardContent"}>
-            <Typography gutterBottom variant="h6" component="h6" className="ItemBookTitle">
+            <Typography gutterBottom variant="h6" component="h6" className="ItemTitle">
               {description}
             </Typography>
             <Typography variant="body1" gutterBottom color="textSecondary">

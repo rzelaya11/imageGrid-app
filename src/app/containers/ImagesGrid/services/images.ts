@@ -1,14 +1,14 @@
 import { SearchResponse } from "../models";
 import { getImagesInformation } from "./ImageFormatterHelper";
 
-export class BooksService {
-  //private readonly booksUrl: string;
+export class ImagesService {
+  //private readonly imagesUrl: string;
   constructor(baseUrl = process.env.API_URL) {
-    //this.booksUrl = `${baseUrl}/api/books`;
+    //this.imagesUrl = `${baseUrl}/api/images`;
   }
-  searchBooks(keywords: string, page: number, size: number): SearchResponse {
+  searchImages(keywords: string, page: number, size: number): SearchResponse {
     /*return fetch(
-      `${this.booksUrl}?query=${keywords}&pageNumber=${page}&size=${size}`, 
+      `${this.imagesUrl}?query=${keywords}&pageNumber=${page}&size=${size}`, 
       { 
         method: 'GET'
       },

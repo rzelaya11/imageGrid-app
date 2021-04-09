@@ -1,1 +1,1 @@
-export * from 'app/containers/ImagesGrid/services/books';
+export * from 'app/containers/ImagesGrid/services/images';
