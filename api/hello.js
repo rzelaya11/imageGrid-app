@@ -24,7 +24,9 @@ module.exports = async (req, res) => {
     }).then(result => result.json())
         .then((result) => {
             var images = [];
+            console.log('result', result);
             result.items.forEach(element => {
+                console.log('element', element.pagemap);
                 var image = {
                     image: {
                         small: element.pagemap.cse_thumbnail[0].src,
