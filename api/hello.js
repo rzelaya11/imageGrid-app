@@ -1,5 +1,10 @@
-module.exports = (req, res) => {
-
+const fetch = require('node-fetch');
+//const google = require('googleapis').google
+//const customSearch = google.customSearch('v1')
+//const state = require('./state.js')
+module.exports = async (req, res) => {
+    /*
+    console.log('start');
     res.setHeader('Access-Control-Allow-Origin', '*')
     // another common pattern
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
@@ -8,20 +13,33 @@ module.exports = (req, res) => {
         'Access-Control-Allow-Headers',
         'X-CSRF-Token, X-Requested-With,Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization'
     )
-    var image = {
-        image: {
-            small: 'https://firebasestorage.googleapis.com/v0/b/sconliestore.appspot.com/o/Items%2f028400040129.jpg?alt=media',
-            large: 'https://firebasestorage.googleapis.com/v0/b/sconliestore.appspot.com/o/Items%2f028400040129.jpg?alt=media',
-            extraLarge: 'https://firebasestorage.googleapis.com/v0/b/sconliestore.appspot.com/o/Items%2f028400040129.jpg?alt=media'
-        },
-        description: '',
-        itemlookupcode: '',
-        price: 0,
-    };
-    const response = {
-        totalItems: 20,
-        items: [image, image, image, image, image, image, image, image, image, image, image, image, image, image, image, image, image, image
-            , image, image,]
-    };
-    res.status(200).send(response)
+    */
+    //const content = state.load()
+    //async function loadImages() {
+    var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCAE5WJYGP9dqKBnHhvNK0bhBpdmBmzDeQ&start=10&cx=2adb281db276580e1&searchtype=IMAGE&q=michael%20jackson'
+    return fetch(url, {
+        method: 'GET',
+    }).then(res => res.json())
+        .then((res) => {
+            var images = [];
+            res.items.forEach(element => {
+                var image = {
+                    image: {
+                        small: element.pagemap.cse_thumbnail[0].src,
+                        large: element.pagemap.cse_thumbnail[0].src,
+                        extraLarge: element.pagemap.cse_thumbnail[0].src
+                    },
+                    description: '',
+                    itemlookupcode: '',
+                    price: 0,
+                };
+                images.push(image);
+            });
+            return res.status(200).send(response)
+        })
+    /**/
+    //console.log(response2.text());    
+    //}
+
 }
+//loadImages();
