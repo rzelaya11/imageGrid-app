@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 //const customSearch = google.customSearch('v1')
 //const state = require('./state.js')
 module.exports = async (req, res) => {
-    const { keywords } = req.query
+    const { keywords, page } = req.query
     //console.log('start');
     res.setHeader('Access-Control-Allow-Origin', '*')
     // another common pattern
