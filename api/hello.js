@@ -19,10 +19,10 @@ module.exports = async (req, res) => {
     var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCAE5WJYGP9dqKBnHhvNK0bhBpdmBmzDeQ&start=10&cx=2adb281db276580e1&searchtype=IMAGE&q=michael%20jackson'
     return fetch(url, {
         method: 'GET',
-    }).then(res => res.json())
-        .then((res) => {
+    }).then(result => result.json())
+        .then((result) => {
             var images = [];
-            res.items.forEach(element => {
+            result.items.forEach(element => {
                 var image = {
                     image: {
                         small: element.pagemap.cse_thumbnail[0].src,
