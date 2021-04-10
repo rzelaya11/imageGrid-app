@@ -20,7 +20,7 @@ export class ImagesService {
       .then(res => res.json())
       .then(responseAsJson => {
 
-        return getImagesInformation("");
+        return responseAsJson;
       })
       .catch(error => Promise.reject(error));
   }
