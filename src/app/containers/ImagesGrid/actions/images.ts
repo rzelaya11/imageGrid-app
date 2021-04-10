@@ -1,7 +1,7 @@
 import { createAction } from "redux-actions";
 import { Dispatch } from "redux";
 import { ImagesService } from "../services";
-import { SearchRequest, SearchResponse, ProductModel, } from "../models";
+import { SearchRequest, SearchResponse } from "../models";
 
 export namespace ImageActions {
   export enum Type {
@@ -15,6 +15,7 @@ export namespace ImageActions {
     SET_IMAGE_DETAIL_SOURCE = 'SET_IMAGE_DETAIL_SOURCE',
     SET_BACK_TEXT = 'SET_BACK_TEXT',
     SELECT_IMAGE = "SELECT_IMAGE",
+    CHANGE_IMAGE = "CHANGE_IMAGE",
     RESET_IMAGES_STATE = 'RESET_IMAGES_STATE'
   }
 
@@ -32,7 +33,8 @@ export namespace ImageActions {
   export const searchImagesFailed = createAction(Type.SEARCH_IMAGES_FAILED);
   export const searchImagesSuccess = createAction<SearchResponse>(Type.SEARCH_IMAGES_SUCCESS);
 
-  export const selectImage = createAction<ProductModel>(Type.SELECT_IMAGE);
+  export const selectImage = createAction<number>(Type.SELECT_IMAGE);
+  export const changeImage = createAction<number>(Type.CHANGE_IMAGE);
 
 
   export const searchImages = (request: SearchRequest) => {

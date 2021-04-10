@@ -38,6 +38,7 @@
 .modalOverlay .modalEnlargeImage {
     margin-top: 6vh;
     max-width: 98%;
+    width: 300px
 }
 
 .CoverModalClose {

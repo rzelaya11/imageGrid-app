@@ -1,4 +1,4 @@
-import './styles.css';
+import './styles.scss';
 
 import * as React from 'react';
 import { Component } from 'react';
@@ -71,8 +71,8 @@ export class Search extends Component<Search.Props, Search.State> {
   }
 
 
-  openCoverModal: any = (item: ProductModel): void => {
-    this.props.actions.selectImage(item);
+  openCoverModal: any = (index: number): void => {
+    this.props.actions.selectImage(index);
     this.setState({ isCoverModalOpen: true });
   }
 
@@ -163,6 +163,7 @@ export class Search extends Component<Search.Props, Search.State> {
             className="ResultsContainer">
             <CoverModal close={this.closeCoverModal}
               isOpen={this.state.isCoverModalOpen}
+              changeImage={this.props.actions.changeImage}
               image={this.props.selectedImage.image.large} />
             {
               searchResults.map((item, index) => {
@@ -170,6 +171,7 @@ export class Search extends Component<Search.Props, Search.State> {
                   <SearchResultItem
                     history={this.props.history}
                     key={`search-result-item${index + 1}`}
+                    index={index}
                     item={item}
                     setScrollPosition={this.props.actions.setScrollPosition}
                     setImageDetailSource={this.props.actions.setImageDetailSource}

@@ -42,21 +42,8 @@ const theme = createMuiTheme({
 
 export interface Props {
 }
-
-export interface State {
-  showLoader: boolean;
-}
-
-export class Root extends React.Component<Props, State> {
-  state = {
-    showLoader: true,
-  };
-
-  componentDidMount() {
-    setTimeout(() => this.setState({ showLoader: false }), 1000);
-  }
+export class Root extends React.Component<Props> {
   render() {
-
     return (
       <MuiThemeProvider theme={theme}>
         <Box>

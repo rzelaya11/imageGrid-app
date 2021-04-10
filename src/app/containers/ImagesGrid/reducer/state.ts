@@ -13,6 +13,8 @@ export interface ImageState {
   showSearchInput: boolean;
   scrollSearchPositionY: number;
   backText: string;
+  selectedIndex: number;
+  currentPage: number;
 }
 
 

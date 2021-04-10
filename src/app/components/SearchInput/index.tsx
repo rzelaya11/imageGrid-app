@@ -47,7 +47,6 @@ export class SearchInput extends React.Component<SearchInput.Props, SearchInput.
   }
 
   click: any = () => {
-    console.log('testt');
     this.props.search();
   }
 

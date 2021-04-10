@@ -1,7 +1,6 @@
 import { handleActions } from 'redux-actions';
 import { ImageActions } from '../actions';
 import { ImageState } from './state';
-import { ProductModel } from '../models';
 //import { ProductModel } from '../models';
 
 export const productInitialState: ImageState = {
@@ -22,9 +21,11 @@ export const productInitialState: ImageState = {
     itemlookupcode: '',
     price: 0,
   },
+  selectedIndex: 0,
   showSearchInput: false,
   scrollSearchPositionY: 0,
   backText: '',
+  currentPage: 0
 };
 
 export const imagesReducer = handleActions<ImageState, any>(
@@ -48,7 +49,7 @@ export const imagesReducer = handleActions<ImageState, any>(
       return {
         ...state,
         isLoading: true,
-        currentPage: action.payload.page,
+        currentPage: state.currentPage + 1,
         pageSize: action.payload.pageSize,
         generalStatus: 'requested-search',
       };
@@ -60,18 +61,28 @@ export const imagesReducer = handleActions<ImageState, any>(
         hasLoadedResultsBefore: true,
         isLoading: false,
         totalSearchResults: action.payload.totalItems,
-        searchResults: action.payload.items,
+        searchResults: state.searchResults.concat(action.payload.items),
         generalStatus: action.payload.items.length === 0 ? 'empty-results' : 'full-results',
       };
     },
 
     [ImageActions.Type.SELECT_IMAGE]: (state, action) => {
-      const results: ProductModel = action.payload;
-      console.log('results:', results);
-      console.log('state:', state);
       return {
         ...state,
-        selectedProduct: action.payload
+        selectedProduct: state.searchResults[action.payload],
+        selectedIndex: action.payload
+      };
+    },
+
+    [ImageActions.Type.CHANGE_IMAGE]: (state, action) => {
+
+      var newIndex = state.selectedIndex + action.payload;
+      if (newIndex < 0) newIndex = state.searchResults.length - 1;
+      if (newIndex === state.searchResults.length) newIndex = 0;
+      return {
+        ...state,
+        selectedIndex: newIndex,
+        selectedProduct: state.searchResults[newIndex]
       };
     },
 

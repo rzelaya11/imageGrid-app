@@ -17,6 +17,7 @@ export namespace Navbar {
     showProgressBar: boolean;
     resetSearch: Function;
     showSearchInput: boolean;
+    currentPage: number;
   }
   export interface State {
     showNavbarMenu: boolean;
@@ -151,7 +152,7 @@ export class Navbar extends React.Component<Navbar.Props, Navbar.State> {
 
   handleKeyDownOnSearchDesktop: any = (event: any) => {
     if (event.key === 'Enter') {
-      this.props.search(this.props.searchText, 1);
+      this.props.search(this.props.searchText, this.props.currentPage + 1);
       this.setState({ activeResults: true })
       this.props.history.push('/search');
       event.target.blur();
@@ -160,7 +161,7 @@ export class Navbar extends React.Component<Navbar.Props, Navbar.State> {
 
 
   searchImagesDesktop: any = () => {
-    this.props.search(this.props.searchText, 1);
+    this.props.search(this.props.searchText, this.props.currentPage + 1);
     this.setState({ activeResults: true })
     this.props.history.push('/search');
   }
@@ -223,7 +224,7 @@ export class Navbar extends React.Component<Navbar.Props, Navbar.State> {
         <Grid item xs={11} container justify='center'>
           <SearchInput search={(_: any) => {
             this.setState({ ...this.state, activeResults: true });
-            this.props.search(this.props.searchText, 1);
+            this.props.search(this.props.searchText, this.props.currentPage + 1);
           }}
             textChanged={this.props.setSearchText}
             resetSearch={this.props.resetSearch}

@@ -9,6 +9,7 @@ import * as React from 'react';
 export namespace SearchResultItem {
   export interface Props extends Pick<RouteComponentProps<void>, 'history'> {
     item: ProductModel;
+    index: number;
     setScrollPosition: Function;
     setImageDetailSource: Function;
     Open: Function;
@@ -35,7 +36,7 @@ export class SearchResultItem extends React.Component<SearchResultItem.Props, Se
     const { image, description, itemlookupcode } = this.props.item;
     return (
       <Grid container item xs={12} md={4} className="">
-        <Card className={"card"} onClick={() => { console.log(this.props.Open); this.props.Open(this.props.item); }}>
+        <Card className={"card"} onClick={() => { this.props.Open(this.props.index); }}>
           <CardMedia className={"cardMedia"} image={''}>
             <img src={this.getImage(image)}></img>
           </CardMedia>

@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
     //async function loadImages() {
     console.log('req.query', req.query);
     console.log('keywords', keywords);
-    var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCAE5WJYGP9dqKBnHhvNK0bhBpdmBmzDeQ&start=10&cx=2adb281db276580e1&searchtype=IMAGE&q=' + keywords
+    var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCAE5WJYGP9dqKBnHhvNK0bhBpdmBmzDeQ&start=' + page * 10 + '&cx=2adb281db276580e1&searchtype=IMAGE&q=' + keywords
     return fetch(url, {
         method: 'GET',
     }).then(result => result.json())

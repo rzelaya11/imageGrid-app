@@ -70,6 +70,7 @@ class App extends Component<App.Props> {
           showSearchInput={this.props.showSearchInput}
           setShowSearchInput={this.props.actions.setShowSearchInput}
           resetSearch={this.props.actions.resetSearch}
+          currentPage={this.props.currentPage}
         />
         <Switch>
           <Route exact path="/" render={() => { return this.getHome(); }} />
@@ -87,6 +88,7 @@ function mapStateToProps(state: RootState): Partial<App.Props> {
     isImagesLoading: state.images.isLoading,
     searchText: state.images.searchText,
     showSearchInput: state.images.showSearchInput,
+    currentPage: state.images.currentPage,
     scrollSearchPositionY: state.images.scrollSearchPositionY,
   };
 }

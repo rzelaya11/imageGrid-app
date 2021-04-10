@@ -4,7 +4,7 @@ export class ImagesService {
   }
   searchImages(keywords: string, page: number, size: number): Promise<any> {
     return fetch(
-      `https://image-grid-app2.vercel.app/api/hello.js?keywords=${keywords}`,
+      `https://image-grid-app2.vercel.app/api/hello.js?keywords=${keywords}&page=${page}`,
       {
         headers: {
           origin: '*',
