@@ -26,18 +26,19 @@ module.exports = async (req, res) => {
             var images = [];
             console.log('result', result);
             result.items.forEach(element => {
-                console.log('element', element.pagemap);
-                var image = {
-                    image: {
-                        small: element.pagemap.cse_thumbnail[0].src,
-                        large: element.pagemap.cse_thumbnail[0].src,
-                        extraLarge: element.pagemap.cse_thumbnail[0].src
-                    },
-                    description: '',
-                    itemlookupcode: '',
-                    price: 0,
-                };
-                images.push(image);
+                if (element.pagemap && element.pagemap.cse_thumbnail) {
+                    var image = {
+                        image: {
+                            small: element.pagemap.cse_thumbnail[0].src,
+                            large: element.pagemap.cse_thumbnail[0].src,
+                            extraLarge: element.pagemap.cse_thumbnail[0].src
+                        },
+                        description: '',
+                        itemlookupcode: '',
+                        price: 0,
+                    };
+                    images.push(image);
+                }
             });
             return res.status(200).send(images)
         })
