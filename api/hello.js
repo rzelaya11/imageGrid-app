@@ -35,7 +35,7 @@ module.exports = async (req, res) => {
                 };
                 images.push(image);
             });
-            return res.status(200).send(response)
+            return res.status(200).send(images)
         })
     /**/
     //console.log(response2.text());    
