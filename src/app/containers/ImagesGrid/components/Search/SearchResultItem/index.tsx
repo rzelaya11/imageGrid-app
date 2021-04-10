@@ -35,7 +35,7 @@ export class SearchResultItem extends React.Component<SearchResultItem.Props, Se
     const { image, description, itemlookupcode } = this.props.item;
     return (
       <Grid container item xs={12} md={4} className="">
-        <Card className={"card"} onClick={() => { console.log(this.props.Open); this.props.Open(); }}>
+        <Card className={"card"} onClick={() => { console.log(this.props.Open); this.props.Open(this.props.item); }}>
           <CardMedia className={"cardMedia"} image={''}>
             <img src={this.getImage(image)}></img>
           </CardMedia>

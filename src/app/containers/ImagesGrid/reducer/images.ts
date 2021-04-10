@@ -1,6 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { ImageActions } from '../actions';
 import { ImageState } from './state';
+import { ProductModel } from '../models';
 //import { ProductModel } from '../models';
 
 export const productInitialState: ImageState = {
@@ -61,6 +62,16 @@ export const imagesReducer = handleActions<ImageState, any>(
         totalSearchResults: action.payload.totalItems,
         searchResults: action.payload.items,
         generalStatus: action.payload.items.length === 0 ? 'empty-results' : 'full-results',
+      };
+    },
+
+    [ImageActions.Type.SELECT_IMAGE]: (state, action) => {
+      const results: ProductModel = action.payload;
+      console.log('results:', results);
+      console.log('state:', state);
+      return {
+        ...state,
+        selectedProduct: action.payload
       };
     },
 

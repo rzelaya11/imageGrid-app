@@ -71,7 +71,8 @@ export class Search extends Component<Search.Props, Search.State> {
   }
 
 
-  openCoverModal: any = (): void => {
+  openCoverModal: any = (item: ProductModel): void => {
+    this.props.actions.selectImage(item);
     this.setState({ isCoverModalOpen: true });
   }
 
@@ -109,11 +110,6 @@ export class Search extends Component<Search.Props, Search.State> {
               <br /> <strong>“{this.state.searchTextWithNoResults}”</strong>.
             </Typography>
 
-            <ul>
-              <li>Check your spelling</li>
-              <li>Use fewer words or more general words</li>
-              <li>Search for a less specific term</li>
-            </ul>
           </Grid>
         </Grid>
       </Container>
@@ -158,7 +154,7 @@ export class Search extends Component<Search.Props, Search.State> {
     if (!hasLoadedResultsBefore || totalSearchResults === 0) {
       return null;
     }
-
+    console.log('this.props.selectedImage:', this.props.selectedImage);
     return (
       <div>
         {
@@ -167,7 +163,7 @@ export class Search extends Component<Search.Props, Search.State> {
             className="ResultsContainer">
             <CoverModal close={this.closeCoverModal}
               isOpen={this.state.isCoverModalOpen}
-              image={'https://firebasestorage.googleapis.com/v0/b/sconliestore.appspot.com/o/Items%2f028400040129.jpg?alt=media'} />
+              image={this.props.selectedImage.image.large} />
             {
               searchResults.map((item, index) => {
                 return (

@@ -1,13 +1,10 @@
-import { getImagesInformation } from "./ImageFormatterHelper";
 
 export class ImagesService {
-  //private readonly imagesUrl: string;
   constructor(baseUrl = process.env.API_URL) {
-    //this.imagesUrl = `${baseUrl}/api/images`;
   }
   searchImages(keywords: string, page: number, size: number): Promise<any> {
     return fetch(
-      'https://image-grid-app2.vercel.app/api/hello.js',
+      `https://image-grid-app2.vercel.app/api/hello.js?keywords=${keywords}`,
       {
         headers: {
           origin: '*',
@@ -20,7 +17,10 @@ export class ImagesService {
       .then(res => res.json())
       .then(responseAsJson => {
 
-        return responseAsJson;
+        return {
+          totalItems: 20,
+          items: responseAsJson
+        };
       })
       .catch(error => Promise.reject(error));
   }
