@@ -3,8 +3,8 @@ const fetch = require('node-fetch');
 //const customSearch = google.customSearch('v1')
 //const state = require('./state.js')
 module.exports = async (req, res) => {
-    /*
-    console.log('start');
+
+    //console.log('start');
     res.setHeader('Access-Control-Allow-Origin', '*')
     // another common pattern
     res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
         'Access-Control-Allow-Headers',
         'X-CSRF-Token, X-Requested-With,Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization'
     )
-    */
+
     //const content = state.load()
     //async function loadImages() {
     var url = 'https://www.googleapis.com/customsearch/v1?key=AIzaSyCAE5WJYGP9dqKBnHhvNK0bhBpdmBmzDeQ&start=10&cx=2adb281db276580e1&searchtype=IMAGE&q=michael%20jackson'
