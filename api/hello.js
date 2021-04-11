@@ -24,6 +24,6 @@ module.exports = async (req, res) => {
                     imagesToReturn.push(image);
                 }
             });
-            return res.status(200).send({ images, totalSearchResults: result.searchInformation.totalResults });
+            return res.status(200).send({ images: imagesToReturn, totalSearchResults: result.searchInformation.totalResults });
         })
 }
