@@ -16,25 +16,22 @@ export namespace ImageActions {
     SET_BACK_TEXT = 'SET_BACK_TEXT',
     SELECT_IMAGE = "SELECT_IMAGE",
     CHANGE_IMAGE = "CHANGE_IMAGE",
-    RESET_IMAGES_STATE = 'RESET_IMAGES_STATE'
+    RESET_IMAGES_STATE = 'RESET_IMAGES_STATE',
+    SORT = 'SORT'
   }
 
-  export const resetSearch = createAction(
-    Type.RESET_SEARCH,
-  );
-
+  export const resetSearch = createAction(Type.RESET_SEARCH);
   export const setShowSearchInput = createAction<boolean>(Type.SET_SHOW_SEARCH_INPUT_TEXT);
   export const setSearchText = createAction<string>(Type.SET_SEARCH_TEXT);
   export const setScrollPosition = createAction<number>(Type.SET_SCROLL_POSITION);
   export const setImageDetailSource = createAction<string>(Type.SET_IMAGE_DETAIL_SOURCE);
   export const setBackText = createAction<string>(Type.SET_BACK_TEXT);
-
   export const searchImagesRequest = createAction<SearchRequest>(Type.SEARCH_IMAGES_REQUEST);
   export const searchImagesFailed = createAction(Type.SEARCH_IMAGES_FAILED);
   export const searchImagesSuccess = createAction<SearchResponse>(Type.SEARCH_IMAGES_SUCCESS);
-
   export const selectImage = createAction<number>(Type.SELECT_IMAGE);
   export const changeImage = createAction<number>(Type.CHANGE_IMAGE);
+  export const sort = createAction(Type.SORT);
 
 
   export const searchImages = (request: SearchRequest) => {
@@ -42,11 +39,8 @@ export namespace ImageActions {
       dispatch(searchImagesRequest(request));
       try {
         const imagesService = new ImagesService();
-
         const { keywords, page, pageSize } = request;
-
         const response = await imagesService.searchImages(keywords.trim(), page, pageSize);
-        console.log(response);
         dispatch(searchImagesSuccess(response));
       }
       catch (error) {
@@ -56,5 +50,4 @@ export namespace ImageActions {
     };
   }
 }
-
 export type ImageActions = Omit<typeof ImageActions, 'Type'>;

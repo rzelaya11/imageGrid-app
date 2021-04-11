@@ -15,6 +15,7 @@ export interface ImageState {
   backText: string;
   selectedIndex: number;
   currentPage: number;
+  sortDirection: number;
 }
 
 

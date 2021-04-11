@@ -19,12 +19,33 @@ export const productInitialState: ImageState = {
   showSearchInput: false,
   scrollSearchPositionY: 0,
   backText: '',
-  currentPage: 0
+  currentPage: 0,
+  sortDirection: 1
 };
 
 export const imagesReducer = handleActions<ImageState, any>(
   {
 
+    [ImageActions.Type.SORT]: state => {
+      //console.log('*state.searchResults', state.searchResults);
+      //console.log('*state.sortDirection', state.sortDirection);
+      var sortedResults = state.searchResults.sort((a, b) => {
+        var nameA = a.description.toLowerCase().replace('<b>', '').replace('</b>', ''),
+          nameB = b.description.toLowerCase().replace('<b>', '').replace('</b>', '');
+        if (nameA < nameB)
+          return -1 * state.sortDirection;
+        if (nameA > nameB)
+          return 1 * state.sortDirection;
+        return 0;
+        return 0;
+      });
+      console.log(sortedResults);
+      return {
+        ...state,
+        searchResults: sortedResults,
+        sortDirection: state.sortDirection * -1,
+      };
+    },
     [ImageActions.Type.RESET_SEARCH]: state => {
       return {
         ...state,
@@ -54,8 +75,8 @@ export const imagesReducer = handleActions<ImageState, any>(
         ...state,
         hasLoadedResultsBefore: true,
         isLoading: false,
-        totalSearchResults: action.payload.totalItems,
-        searchResults: state.searchResults.concat(action.payload.items),
+        totalSearchResults: action.payload.totalSearchResults,
+        searchResults: state.searchResults.concat(action.payload.images.items),
         generalStatus: action.payload.items.length === 0 ? 'empty-results' : 'full-results',
       };
     },

@@ -71,6 +71,7 @@ class App extends Component<App.Props> {
           setShowSearchInput={this.props.actions.setShowSearchInput}
           resetSearch={this.props.actions.resetSearch}
           currentPage={this.props.currentPage}
+          sort={this.props.actions.sort}
         />
         <Switch>
           <Route exact path="/" render={() => { return this.getHome(); }} />
