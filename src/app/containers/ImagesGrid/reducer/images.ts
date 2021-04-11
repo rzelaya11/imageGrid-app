@@ -12,14 +12,8 @@ export const productInitialState: ImageState = {
   searchText: '',
   generalStatus: 'empty',
   selectedProduct: {
-    image: {
-      small: '',
-      large: '',
-      extraLarge: ''
-    },
-    description: '',
-    itemlookupcode: '',
-    price: 0,
+    image: '',
+    description: ''
   },
   selectedIndex: 0,
   showSearchInput: false,

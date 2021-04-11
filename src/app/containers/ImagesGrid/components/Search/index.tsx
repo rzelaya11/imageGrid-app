@@ -13,7 +13,7 @@ import { omit } from 'app/utils';
 import { connect } from 'react-redux';
 import { ProductModel, SearchRequest } from '../../models';
 import { SearchResultItem } from './SearchResultItem';
-import { CoverModal } from '../ImageDetails/CoverModal';
+import { CoverModal } from '../ImageDetails';
 
 export namespace Search {
   export interface Props extends Pick<RouteComponentProps<void>, 'history'> {
@@ -164,7 +164,7 @@ export class Search extends Component<Search.Props, Search.State> {
             <CoverModal close={this.closeCoverModal}
               isOpen={this.state.isCoverModalOpen}
               changeImage={this.props.actions.changeImage}
-              image={this.props.selectedImage.image.large} />
+              image={this.props.selectedImage.image} />
             {
               searchResults.map((item, index) => {
                 return (
@@ -173,8 +173,6 @@ export class Search extends Component<Search.Props, Search.State> {
                     key={`search-result-item${index + 1}`}
                     index={index}
                     item={item}
-                    setScrollPosition={this.props.actions.setScrollPosition}
-                    setImageDetailSource={this.props.actions.setImageDetailSource}
                     Open={this.openCoverModal}
                   />
                 )

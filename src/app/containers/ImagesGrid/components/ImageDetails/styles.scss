@@ -1,3 +1,31 @@
+
+ .arrow-left{
+  left:150px;
+  position:absolute;
+  padding: 10px;
+  bottom: 50px;
+  color:white;
+  cursor: hand;
+ }
+ .arrow-right{
+    position:absolute;
+    padding: 10px;
+    right:150px;
+    bottom: 50px;
+    color:white;
+    cursor: hand;
+ }
+
+.zoomIn{
+    width:30px;
+    position:relative;
+    display: inline-block;
+}
+.zoomOut{
+    width:30px;
+    position:relative;
+    display: inline-block;
+}
 .container-cover-desktop {
     display: inline-block;
     border: 1px solid;

@@ -1,15 +1,7 @@
-export interface ImageModel {
-  small: string;
-  large: string;
-  extraLarge: string;
-}
-
 
 export interface ProductModel {
-  image: ImageModel;
+  image: string;
   description: string;
-  itemlookupcode: string;
-  price: number;
 }
 
 export interface SearchResponse {

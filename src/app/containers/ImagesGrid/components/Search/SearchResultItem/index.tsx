@@ -1,17 +1,16 @@
-import './styles.css';
+import './styles.scss';
 
 import { Grid, Typography, Card, CardMedia, CardContent } from '@material-ui/core';
-import { ImageModel, ProductModel } from '../../../models';
-import ImageUnavailable from '../../../../../../assets/images/image-unavailable.png'
+import { ProductModel } from '../../../models';
 import { RouteComponentProps } from 'react-router';
 import * as React from 'react';
+
+var parse = require('html-react-parser');
 
 export namespace SearchResultItem {
   export interface Props extends Pick<RouteComponentProps<void>, 'history'> {
     item: ProductModel;
     index: number;
-    setScrollPosition: Function;
-    setImageDetailSource: Function;
     Open: Function;
   }
 
@@ -23,29 +22,19 @@ export class SearchResultItem extends React.Component<SearchResultItem.Props, Se
     super(props);
   }
 
-  getImage: any = (image: ImageModel): any => {
-    return (image.large === '#') ?
-      ImageUnavailable
-      :
-      image.large;
-  }
-
 
 
   render() {
-    const { image, description, itemlookupcode } = this.props.item;
+    const { image, description } = this.props.item;
     return (
       <Grid container item xs={12} md={4} className="">
         <Card className={"card"} onClick={() => { this.props.Open(this.props.index); }}>
           <CardMedia className={"cardMedia"} image={''}>
-            <img src={this.getImage(image)}></img>
+            <img src={image}></img>
           </CardMedia>
           <CardContent className={"cardContent"}>
             <Typography gutterBottom variant="h6" component="h6" className="ItemTitle">
-              {description}
-            </Typography>
-            <Typography variant="body1" gutterBottom color="textSecondary">
-              {itemlookupcode}
+              {parse(description)}
             </Typography>
           </CardContent>
         </Card>
