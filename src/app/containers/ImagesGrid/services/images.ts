@@ -15,13 +15,7 @@ export class ImagesService {
       },
     )
       .then(res => res.json())
-      .then(responseAsJson => {
 
-        return {
-          totalItems: 20,
-          items: responseAsJson
-        };
-      })
       .catch(error => Promise.reject(error));
   }
 }

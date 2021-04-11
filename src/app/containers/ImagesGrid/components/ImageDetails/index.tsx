@@ -3,10 +3,14 @@ import Modal from '@material-ui/core/Modal';
 import Hidden from '@material-ui/core/Hidden';
 import { Icon } from 'app/components/Icons';
 import './styles.scss';
+//import { Typography } from '@material-ui/core';
+
+var parse = require('html-react-parser');
 
 export namespace CoverModal {
   export interface Props {
     image: any,
+    description: string,
     isOpen: boolean,
     changeImage: Function,
     close: any,
@@ -85,7 +89,9 @@ export class CoverModal extends React.Component<CoverModal.Props, CoverModal.Sta
 
           </div>
           <img className="modalEnlargeImage" src={this.props.image} id='IMG' />
-
+          <div className="ItemTitle2">
+            {parse(this.props.description)}
+          </div>
           <Hidden mdUp>
             <div className="CoverModalClose" onClick={this.props.close}>
               <Icon name={'close'} color='rgba(0, 0, 0, 0.87);' />

@@ -1,4 +1,4 @@
-import './styles.css';
+import './styles.scss';
 
 import * as React from 'react';
 import { IconButton, TextField, Grid } from '@material-ui/core';

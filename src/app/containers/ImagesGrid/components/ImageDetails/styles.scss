@@ -1,3 +1,6 @@
+.ItemTitle2{
+    color: white;
+}
 
  .arrow-left{
   left:150px;
@@ -26,33 +29,6 @@
     position:relative;
     display: inline-block;
 }
-.container-cover-desktop {
-    display: inline-block;
-    border: 1px solid;
-    text-align: center;
-    position: relative;
-    left: 0;
-    top: 0;
-    cursor: pointer;
-}
-  
-.container-cover-desktop img {
-    display: block;
-    position: relative;
-    left: 0;
-    top: 0;
-}
-  
-.expand-icon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 28px;
-    height: 17px;
-    background: #e7e7e9;
-    padding: 10px;
-}
-
 .modalOverlay {
     text-align: center !important;
     background-color: rgba(0, 0, 0, 0.6901960784313725);

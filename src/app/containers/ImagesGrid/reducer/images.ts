@@ -37,13 +37,13 @@ export const imagesReducer = handleActions<ImageState, any>(
         if (nameA > nameB)
           return 1 * state.sortDirection;
         return 0;
-        return 0;
       });
       console.log(sortedResults);
       return {
         ...state,
         searchResults: sortedResults,
         sortDirection: state.sortDirection * -1,
+        totalSearchResults: 1 + parseInt(state.totalSearchResults.toString())
       };
     },
     [ImageActions.Type.RESET_SEARCH]: state => {
@@ -71,13 +71,14 @@ export const imagesReducer = handleActions<ImageState, any>(
     },
     [ImageActions.Type.SEARCH_IMAGES_SUCCESS]: (state, action) => {
       //const results: action.payload.items;
+      console.log('action.payload', action.payload);
       return {
         ...state,
         hasLoadedResultsBefore: true,
         isLoading: false,
         totalSearchResults: action.payload.totalSearchResults,
-        searchResults: state.searchResults.concat(action.payload.images.items),
-        generalStatus: action.payload.items.length === 0 ? 'empty-results' : 'full-results',
+        searchResults: state.searchResults.concat(action.payload.images),
+        generalStatus: action.payload.images.length === 0 ? 'empty-results' : 'full-results',
       };
     },
 
